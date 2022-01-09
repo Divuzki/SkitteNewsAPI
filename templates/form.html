@@ -1,0 +1,38 @@
+<form method='POST'> {% csrf_token %}
+    {% if form.password1 %}
+    {% if form.errors %}
+        {{form.username.errors}}    
+        {{form.password1.errors}}    
+        {{form.password2.errors}}
+    {% endif %}
+    <p>Username:</p> {{ form.username }}
+    <p>Password:</p> {{ form.password1 }}
+    <p>Confirm Password:</p> {{ form.password2 }}
+    <br />
+    <br />
+    {% else %}
+    {{ form.as_p }}
+    {% endif %}
+    <button type='submit' class='btn btn-secondary'>{% if btn_label %}
+        {{btn_label}} {% else %}Save{% endif %}</button>
+</form>
+<style>
+    ul li {
+        list-style: none;
+    }
+    .errorlist{
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    }
+
+    .col-11 {
+        top: 20px;
+        height: 100vh;
+    }
+</style>

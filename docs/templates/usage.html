@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-11 pt-5 mx-auto">
+            <div class="grid-area">
+                <section class="mx-auto pt-5">
+                    <div class="cont">
+                        <div class="text-muted text-center">
+                            <h3>How To Use DevNewsAPI</h3>
+                        </div>
+                        <div class="use_wrap">
+                            <div>
+                            <h6> 1. USING HTTP CLIENTS</h6>
+                            <div class="pt-4 border rounded">
+                                <code>
+                                    <p style="line-height: 2.5;padding: 3px 16px 0px;">
+                                        import http.client
+                                        <br>
+                                        import mimetypes
+                                        <br>
+                                        conn = http.client.HTTPSConnection('https://devnewsapi.herokuapp.com')
+                                        <br>
+                                        payload = ''
+                                        <br>
+                                        headers = {
+                                        <br>
+                                        'Cookie':
+                                        'csrftoken=BjXCtSZ7QQxzKDCoIi1hZdx0PswzAlE2veryyaCx5JtF5AcbmBIwtjMJMZ7m2Ob6'
+                                        }
+                                        <br>
+                                        conn.request('GET', '/doc/auth-api/user/key/46/?key={%if key%}{{key}}{%else%}
+                                        'yourapikey'
+                                        {%endif%}', payload, headers)
+                                        <br>
+                                        res = conn.getresponse()
+                                        <br>
+                                        data = res.read()
+                                        <br>
+                                        print(data.decode("utf-8"))
+                                    </p>
+                                </code>
+                            </div>
+                        </div>
+                            <div>
+                                <h6> 2. USING HTTP REQUESTS</h6>
+                                <div class="pt-4 border rounded">
+                                    <code>
+                                        <p style="line-height: 2.5;padding: 3px 16px 0px;">
+                                            import requests
+                                            <br>
+                                            url =
+                                            "https://devnewsapi.herokuapp.com/doc/auth-api/user/key/46/?key={%if key%}{{key}}{%else%}yourapikey{%endif%}"
+                                            <br>
+                                            payload = {}
+                                            <br>
+                                            headers = {
+                                            <br>
+                                            'Cookie':
+                                            'csrftoken=BjXCtSZ7QQxzKDCoIi1hZdx0PswzAlE2veryyaCx5JtF5AcbmBIwtjMJMZ7m2Ob6'
+                                            }
+                                            <br>
+                                            response = requests.request("GET", url, headers=headers, data = payload)
+                                            <br>
+                                            print(response.text.encode('utf8'))
+                                        </p>
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

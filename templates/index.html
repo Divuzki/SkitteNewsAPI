@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="px-4 pt-5 mx-auto">
+    <div class="cont">
+        <div class="text-center">
+            <h1>DevNewsAPI</h1>
+        <div class="btn-group-lg">
+            <button class="btn btn-outline-primary" id="docsBtn">Docs</button>
+            <button class="btn btn-outline-secondary" id="getStartedBtn">GET STARTED</button>
+        </div>
+        
+        </div>
+    </div>
+</section>
+<script>
+    var docsBtn = document.getElementById("docsBtn")
+    docsBtn.addEventListener("click", function () {
+        window.location.href = "{% url 'docs' %}"
+    })
+    var GetStartedBtn = document.getElementById("getStartedBtn")
+    GetStartedBtn.addEventListener("click", function () {
+        window.location.href = "{% url 'register' %}"
+    })
+</script>
+{% endblock content %}

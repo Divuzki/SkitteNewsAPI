@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-11 pt-5 mx-auto">
+            <div class="apikey">
+                {% if user.is_authenticated %}
+                <h1>API KEY:</h1>
+                <input type="text" value="{{key}}" disabled>
+                {% else %}
+                <p>Seriously, go and <a href="{% url 'login' %}?next=/doc/auth-api/user/keys/46/">login</a> first before
+                    u get your
+                    api key🤦‍♂️</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .apikey {
+        position: absolute;
+        left: 50%;
+        top: 200px;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        padding: 5px 5px 5px 5px;
+        text-align: center;
+    }
+
+    input {
+        width: 50%;
+    }
+</style>
+{% endblock content %}

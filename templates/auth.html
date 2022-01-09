@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class='col-10 pr-5 col-md-4 mx-auto border rounded pb-4 pt-3 pl-5'>
+    <h1>{{ title }}</h1>
+    {% if description %}
+    <p>{{ description }} </p>
+    {% endif %}
+    {% include "form.html" with form=form btn_label=btn_label %}
+
+</div>
+<style>
+    .container {
+        position: relative;
+        top: 60px;
+    }
+    input {
+    width: 100%;
+}
+</style>
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-11 pt-5 mx-auto">
+            <div class="text-muted text-center">
+                <h3>EndPoint Test</h3>
+            </div>
+            <div class="use_wrap">
+                <div>
+                    <h6>GETTING INFORMATION FROM API URL </h6>
+                    <div class="pt-4 border rounded">
+                        <code>
+                            <p style="line-height: 2.5;padding: 3px 16px 0px;">
+                                // in the url in Postman you type
+                                ~ https://devnewsapi.herokuapp.com/docs/auth-api/user/key/46/?key={%if key%}{{key}}{%else%}your api key{%endif%}
+                            </p>
+                        </code>
+                        <img src="{% static 'images/endpoint_test_1.jpg' %}" alt="endpoint_test_url_input_image" style="width: 100%;">
+                    </div>
+                    <div class="pt-4 border rounded">
+                        <p>Then:</p>
+                        <img src="{% static 'images/endpoint_test_send_btn.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <ul class="text-muted">
+                <li>I am going to be using Postman for my endpoint test</li>
+                <li class="text-muted small">
+                    <dt>
+                    <dd>Note, that This Api Allows only <b>GET</b> Method</dd>
+                    </dt>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+<nav class="nav-main">
+  {% if nav %}
+  <div class="btn-toggle-nav" onclick="showSideBar()"></div>
+  <div class="btn-toggle-nav" style="background-image: url('{% static 'nav_X.png' %}')" onclick="closeSideBar()"></div>
+  {% endif %}
+  <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
+    <li><a href="{% url 'login' %}">Login</a></li>
+    <li><a href="{% url 'register' %}">Register</a></li>
+    {% endif %}
+    <li><a href="https://devdiv.herokuapp.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
+  </ul>
+</nav>
+{% if nav %}
+<aside class="nav-sidebar">
+  <ul>
+  <li id="docsBtn"><span>Docs</span></li>
+    <li><a href="{% url 'docs_install_usage' %}">Usage</a></li>
+    <!-- <li><a href="#">Supported Languages</a></li> -->
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'api-key' %}">My Api Key</a></li>
+    {% endif %}
+    <li><a href="https://devdiv.herokuapp.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
+  </ul>
+</aside>
+<style>
+  .aside-overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000a;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    visibility: hidden;
+  }
+</style>
+<script src="{% static 'js/nav.js' %}"></script>
+<script>
+  var docsBtn = document.getElementById("docsBtn")
+  docsBtn.addEventListener("click", function () {
+      window.location.href = "{% url 'docs' %}"
+  })
+</script>
+{% endif %}
