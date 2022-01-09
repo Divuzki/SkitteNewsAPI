@@ -15,7 +15,7 @@
 <script>
     var docsBtn = document.getElementById("docsBtn")
     docsBtn.addEventListener("click", function () {
-        window.location.href = "{% url 'docs' %}"
+        window.location.href = "{% if user.is_authenticated %} {% url 'docs' %} {% else %} {% url 'register' %} {% endif %}"
     })
     var GetStartedBtn = document.getElementById("getStartedBtn")
     GetStartedBtn.addEventListener("click", function () {
