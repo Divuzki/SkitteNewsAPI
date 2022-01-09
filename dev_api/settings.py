@@ -23,7 +23,7 @@ DEBUG = True
 if DEBUG:
     ALLOWED_HOSTS = []
 else:
-    ALLOWED_HOSTS = ['devnewsapi.herokuapp.com']
+    ALLOWED_HOSTS = ['skittenewsapi.herokuapp.com']
 LOGIN_URL = "/login"
 
 # Application definition

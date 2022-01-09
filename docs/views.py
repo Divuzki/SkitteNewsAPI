@@ -1,6 +1,5 @@
 
-from django.shortcuts import render, redirect
-from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render
 from core.models import Post
 from core.api.serializers import PostSerializer
 
