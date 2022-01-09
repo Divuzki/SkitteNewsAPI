@@ -1,7 +1,7 @@
 certifi
 chardet
 dj-database-url
-Django
+Django==3.2
 django-cors-headers
 django-heroku
 django-rest-auth
